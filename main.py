@@ -2,10 +2,10 @@
 # It requires no user input.
 
 
-from src.scheduler.fifo_scheduler import FIFOScheduler
+from hexel.scheduler.fifo_scheduler import FIFOScheduler
 
 
-from src.utils.utils import (
+from hexel.utils.utils import (
     parse_global_args,
 )
 
@@ -15,13 +15,13 @@ from pyopenagi.agents.agent_process import AgentProcessFactory
 
 import warnings
 
-from src.llm_kernel import llms
+from hexel.llm_kernel import llms
 
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 
-from src.utils.utils import delete_directories
-from dotenv import load_dotenv
+from hexel.utils.utils import delete_directories
+from dotenv import find_dotenv, load_dotenv
 
 def clean_cache(root_directory):
     targets = {'.ipynb_checkpoints', '__pycache__', ".pytest_cache", "context_restoration"}

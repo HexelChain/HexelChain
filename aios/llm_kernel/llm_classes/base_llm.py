@@ -4,12 +4,12 @@
 import os
 import json
 import re
-from src.context.simple_context import SimpleContextManager
+from hexel.context.simple_context import SimpleContextManager
 
 # abc allows to make abstract classes
 from abc import ABC, abstractmethod
 
-from src.utils.logger import LLMKernelLogger
+from hexel.utils.logger import LLMKernelLogger
 
 class BaseLLMKernel(ABC):
     def __init__(self,
@@ -46,7 +46,7 @@ class BaseLLMKernel(ABC):
         return new_map
 
     def load_config(self, llm_name):
-        config_file = os.path.join(os.getcwd(), "src", "llm_kernel", "llm_config/{}.json".format(llm_name))
+        config_file = os.path.join(os.getcwd(), "hexel", "llm_kernel", "llm_config/{}.json".format(llm_name))
         with open(config_file, "r") as f:
             config = json.load(f)
             return config

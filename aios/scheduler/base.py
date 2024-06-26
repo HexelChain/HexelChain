@@ -3,13 +3,9 @@
 
 from threading import Thread
 
+from hexel.llm_kernel.llms import LLMKernel
 
-from src.llm_kernel.llms import LLMKernel
-
-
-
-
-from src.utils.logger import SchedulerLogger
+from hexel.utils.logger import SchedulerLogger
 class BaseScheduler:
     def __init__(self, llm: LLMKernel, log_mode):
         self.active = False # start/stop the scheduler
