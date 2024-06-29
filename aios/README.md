@@ -1,4 +1,4 @@
-# src/
+# hexel/
 
 This folder contains the internal implementation of AIOS.
 

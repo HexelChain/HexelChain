@@ -1,4 +1,4 @@
-# src/utils/
+# hexel/utils/
 
 This directory consists of helper utilities that are used throughout the project.
 
