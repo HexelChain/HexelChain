@@ -3,7 +3,7 @@
 
 from threading import Thread
 
-from hexel.llm_kernel.llms import LLMKernel
+from hexel.llm_core.llms import LLMKernel
 
 from hexel.utils.logger import SchedulerLogger
 class BaseScheduler:

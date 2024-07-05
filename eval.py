@@ -11,16 +11,14 @@ from pyopenagi.agents.agent_process import AgentProcessFactory
 
 import warnings
 
-from hexel.llm_kernel import llms
+from hexel.llm_core import llms
 
 from concurrent.futures import ThreadPoolExecutor
-
 
 from hexel.utils.utils import delete_directories
 from hexel.utils.calculator import get_numbers_concurrent, get_numbers_sequential, comparison
 
 import argparse
-
 
 from dotenv import load_dotenv
 

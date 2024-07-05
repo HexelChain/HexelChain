@@ -1,4 +1,4 @@
-# hexel/llm_kernel/
+# hexel/llm_core/
 
 This directory contains wrapper classes that abstract the LLMs into a single class called LLMKernel. Currently, the following models are supported:
 

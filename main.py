@@ -15,7 +15,7 @@ from pyopenagi.agents.agent_process import AgentProcessFactory
 
 import warnings
 
-from hexel.llm_kernel import llms
+from hexel.llm_core import llms
 
 from concurrent.futures import ThreadPoolExecutor, as_completed
 

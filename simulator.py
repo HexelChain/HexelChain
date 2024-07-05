@@ -19,7 +19,7 @@ from pyopenagi.agents.agent_process import AgentProcessFactory
 
 import warnings
 
-from hexel.llm_kernel import llms
+from hexel.llm_core import llms
 
 
 from hexel.utils.utils import delete_directories
