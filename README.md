@@ -33,6 +33,7 @@ AIOS provides the LLM kernel as an abstraction on top of the OS kernel. The kern
 Please see our ongoing [documentation](https://hexel.readthedocs.io/en/latest/) for more information.
 - [Installation](https://hexel.readthedocs.io/en/latest/get_started/installation.html)
 - [Quickstart](https://hexel.readthedocs.io/en/latest/get_started/quickstart.html)
+- [List Available Agent](https://hexel.readthedocs.io/en/latest/get_started/list_agent.html)
 
 ### Installation
 
