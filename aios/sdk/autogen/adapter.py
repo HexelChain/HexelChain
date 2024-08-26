@@ -34,14 +34,22 @@ logger = AgentLogger("Adapter")
 
 
 def prepare_autogen(agent_process_factory: Optional[AgentProcessFactory] = None):
-    """adapter autogen for hexel
+    """
+    Replace OpenAIWrapper and ConversableAgent methods with hexel's implementation.
+
+    This function is used to adapt autogen's API to hexel's API, and it is used
+    internally by hexel.
+
+    Args:
+        agent_process_factory: An optional AgentProcessFactory instance. \
+            If agent_process_factory is set, all autogen agents will have the capability to call LLM models.
     """
     # Replace OpenAIWrapper method
     OpenAIWrapper.__init__ = adapter_autogen_client_init
     OpenAIWrapper.create = adapter_client_create
     OpenAIWrapper.extract_text_or_completion_object = adapter_client_extract_text_or_completion_object
 
-    # Replace agent method
+    # Replace agent method  
     ConversableAgent.agent_process_factory = agent_process_factory
     ConversableAgent._print_received_message = _adapter_print_received_message
     ConversableAgent._generate_oai_reply_from_client = _adapter_generate_oai_reply_from_client

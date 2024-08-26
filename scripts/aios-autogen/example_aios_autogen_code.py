@@ -8,7 +8,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(
 
 import warnings
 from dotenv import load_dotenv
-from hexel.sdk.autogen.adapater import prepare_autogen
+from hexel.sdk.autogen.adapter import prepare_autogen
 from hexel.hooks.llm import useKernel, useFIFOScheduler
 from hexel.utils.utils import delete_directories
 from hexel.utils.utils import (
