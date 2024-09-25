@@ -45,10 +45,3 @@ Because AIOS will controll the llm call, you should replace ``llm_config`` with
 
 Don't forget to start the scheduler so that AIOS can manage llm call.
 Details and More examples can be found in https://github.com/agiresearch/AIOS/tree/main/scripts/hexel-autogen
-
-
-prepare_autogen()
------------------
-
-.. automethod:: hexel.sdk.autogen.adapter.prepare_autogen
-    :noindex:

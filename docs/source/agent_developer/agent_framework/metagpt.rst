@@ -57,9 +57,3 @@ so you may need to use ``--max_new_tokens`` to set a larger output token length.
 .. code-block:: shell
 
     python scripts/hexel-metagpt/example_hexel_metagpt.py --llm_name gpt-4o-mini --max_new_tokens 4000
-
-prepare_metagpt()
----------------------
-
-.. automethod:: hexel.sdk.metagpt.adapter.prepare_metagpt
-    :noindex:

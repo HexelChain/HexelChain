@@ -37,12 +37,6 @@ Don't forget to start the scheduler so that AIOS can manage llm call.
 Details and More examples can be found in https://github.com/agiresearch/AIOS/tree/main/scripts/hexel-interpreter
 
 
-prepare_interpreter()
----------------------
-
-.. .. automethod:: hexel.sdk.interpreter.adapter.prepare_interpreter
-..     :noindex:
-
 ``prepare_interpreter()``
 
     Prepare the interpreter for running LLM in hexel.
