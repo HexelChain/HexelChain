@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     title: 'AIOS – The future of AI Agents',
     type: 'website',
     url: 'hexelfoundation',
-    images: 'https://my.hexel.foundation/Agent.svg',
+    images: 'https://my.hexel.foundation/Agent.png',
   },
   description:
     'We’re on a journey to advance and democratize artificial intelligence through open source and open science.',
