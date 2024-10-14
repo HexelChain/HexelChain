@@ -25,19 +25,11 @@ Documentation
 
 
 .. toctree::
-   :maxdepth: 2
-   :caption: For AIOS Users
+   :maxdepth: 1
+   :caption: Get Started
 
-   hexel_user/hexel_user_index
-   hexel_user/installation
-   hexel_user/quickstart
-
-.. toctree::
-   :maxdepth: 2
-   :caption: For AIOS Developers
-
-   hexel_developer/hexel_developer_index
-   hexel_developer/llm_core/llm_index
+   get_started/installation
+   get_started/quickstart
 
 .. toctree::
    :maxdepth: 2
@@ -48,13 +40,15 @@ Documentation
 
 .. toctree::
    :maxdepth: 2
-   :caption: For Agent Users
+   :caption: For AIOS Developers
 
-   agent_user/agent_user_index
-
+   hexel_developer/hexel_developer_index
+   hexel_developer/llm_core/llm_index
 
 .. toctree::
-   :maxdepth: 2
-   :caption: For Agenthub Developers
+   :maxdepth: 1
+   :caption: API References
+   
+   api_references/index
 
-   agenthub_developer/quickstart
+
