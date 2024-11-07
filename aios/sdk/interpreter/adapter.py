@@ -3,10 +3,10 @@
 import json
 import sys
 
+from hexel.hooks.syscall import send_request
+from hexel.sdk.adapter import add_framework_adapter
 from hexel.utils.logger import SDKLogger
-from pyopenagi.agents.agent_process import AgentProcessFactory
 from pyopenagi.utils.chat_template import Query
-from pyopenagi.agents.call_core import CallCore
 from dataclasses import dataclass
 
 try:
@@ -20,24 +20,16 @@ except ImportError:
 
 logger = SDKLogger("Interpreter Adapter")
 
-hexel_call = None
 
-
-def prepare_interpreter(agent_process_factory: AgentProcessFactory):
+@add_framework_adapter("Open-Interpreter")
+def prepare_interpreter():
     """Prepare the interpreter for running LLM in hexel.
-
-    Args:
-        agent_process_factory (AgentProcessFactory):
-            Used to create agent processes.
     """
 
     try:
         # Set the completion function in the interpreter
         interpreter.llm.completions = adapter_hexel_completions
 
-        # Initialize the hexel_call variable as a CallCore object
-        global hexel_call
-        hexel_call = CallCore("interpreter", agent_process_factory, "console")
     except Exception as e:
         logger.log("Interpreter prepare failed: " + str(e) + "\n", "error")
 
@@ -64,8 +56,8 @@ def adapter_hexel_completions(**params):
 
     if params.get("stream", False) is True:
         # TODO: AIOS not supprt stream mode
-        logger.log('''AIOS does not support stream mode currently. The stream mode has been automatically set to False.
-                   ''', level="warn")
+        logger.log("AIOS does not support stream mode currently."
+                   "The stream mode has been automatically set to False.", level="warn")
         params["stream"] = False
 
     # Run completion
@@ -74,9 +66,8 @@ def adapter_hexel_completions(**params):
 
     for attempt in range(attempts):
         try:
-            global hexel_call
-            assert isinstance(hexel_call, CallCore)
-            response, _, _, _, _ = hexel_call.get_response(
+            response, _, _, _, _ = send_request(
+                agent_name="Open-Interpreter",
                 query=Query(
                     messages=params['messages'],
                     tools=(params["tools"] if "tools" in params else None)
