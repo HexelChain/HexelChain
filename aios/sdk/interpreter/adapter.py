@@ -3,7 +3,7 @@
 import json
 import sys
 
-from hexel.hooks.request import send_request
+from hexel.hooks.syscall import send_request
 from hexel.sdk.adapter import add_framework_adapter
 from hexel.utils.logger import SDKLogger
 from pyopenagi.utils.chat_template import Query

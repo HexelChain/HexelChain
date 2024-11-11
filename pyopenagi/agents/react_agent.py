@@ -7,7 +7,7 @@ from ..utils.chat_template import Query
 
 import json
 
-from hexel.hooks.request import send_request
+from hexel.hooks.syscall import send_request
 
 class ReactAgent(BaseAgent):
     def __init__(self,

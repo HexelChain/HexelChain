@@ -7,7 +7,7 @@ from hexel.utils.utils import (
 import os
 import warnings
 
-from hexel.hooks.llm import hexel_starter
+from hexel.hooks.starter import hexel_starter
 
 from hexel.utils.utils import delete_directories
 from dotenv import load_dotenv
