@@ -9,7 +9,7 @@ from hexel.utils.utils import (
     delete_directories
 )
 import warnings
-from hexel.hooks.llm import hexel_starter
+from hexel.hooks.starter import hexel_starter
 from dotenv import load_dotenv
 import asyncio
 
