@@ -7,19 +7,25 @@ from hexel.hooks.types.memory import MemoryRequestQueueGetMessage
 from hexel.hooks.types.tool import ToolRequestQueueGetMessage
 from hexel.hooks.types.storage import StorageRequestQueueGetMessage
 
+from hexel.memory.manager import MemoryManager
+from hexel.storage.storage import StorageManager
+from hexel.llm_core.adapter import LLMAdapter
+from hexel.tool.manager import ToolManager
+
 from .base import Scheduler
 
 from queue import Empty
 
 import traceback
 import time
+
 class FIFOScheduler(Scheduler):
     def __init__(
         self,
-        llm,
-        memory_manager,
-        storage_manager,
-        tool_manager,
+        llm: LLMAdapter,
+        memory_manager: MemoryManager,
+        storage_manager: StorageManager,
+        tool_manager: ToolManager,
         log_mode,
         get_llm_syscall: LLMRequestQueueGetMessage,
         get_memory_syscall: MemoryRequestQueueGetMessage,
@@ -71,7 +77,7 @@ class FIFOScheduler(Scheduler):
 
                 memory_syscall.set_status("executing")
                 self.logger.log(
-                    f"{mem_syscall.agent_name} is executing. \n", "execute"
+                    f"{memory_syscall.agent_name} is executing. \n", "execute"
                 )
                 memory_syscall.set_start_time(time.time())
 

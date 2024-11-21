@@ -4,7 +4,8 @@ from contextlib import contextmanager
 from typing import Any
 from random import randint
 
-from hexel.llm_core.llms import LLM
+# from hexel.llm_core.llms import LLM
+from hexel.llm_core.adapter import LLMAdapter as LLM
 
 from hexel.scheduler.fifo_scheduler import FIFOScheduler
 
