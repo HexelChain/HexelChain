@@ -6,7 +6,7 @@ import json
 
 from hexel.llm_core.cores.base import BaseLLM
 
-from hexel.utils.utils import get_from_env
+from hexel.utils import get_from_env
 
 from cerebrum.llm.communication import Response
 

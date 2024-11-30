@@ -1,4 +1,4 @@
-from hexel.utils.utils import parse_global_args
+from hexel.utils import parse_global_args
 
 
 def main():
