@@ -16,7 +16,7 @@ def useFactory(
     params: FactoryParams,
 ) -> Tuple[Callable[[AgentSubmitDeclaration], int], Callable[[str], Dict[str, Any]]]:
     thread_pool = ThreadPoolExecutor(max_workers=params.max_workers)
-    manager = AgentManager('https://hexel.foundation')
+    manager = AgentManager('https://app.hexel.foundation')
 
     send_request, _ = useSysCall()
 
@@ -45,6 +45,7 @@ def useFactory(
 
             except:
                 is_local = True
+                
             if is_local:
                 agent_class, _ = manager.load_agent(local=True, path=agent_name)
             else:
