@@ -1,4 +1,6 @@
-# Hexel Chain: Autonomous Intelligence Framework  
+
+# Hexel Chain: Autonomous Intellig![github-banner](https://github.com/user-attachments/assets/0208e4bc-92af-478b-ba40-89738695aed2)
+ence Framework  
 
 Hexel Chain serves as an advanced framework for AI-driven agents, seamlessly integrating large language models (LLMs) into an operational environment. It streamlines the creation and execution of LLM-powered agents by tackling key challenges such as task coordination, context management, memory allocation, data handling, tool integration, and SDK support. By enhancing the overall ecosystem for both developers and users, Hexel Chain simplifies the deployment of intelligent agents. The system consists of a core module responsible for essential operations and a dedicated SDK for extended functionality. Additionally, it offers both a web-based interface and a terminal-based UI for versatile interaction.
 
