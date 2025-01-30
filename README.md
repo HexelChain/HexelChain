@@ -1,133 +1,84 @@
-# AIOS: AI Agent Operating System
+# Hexel Chain: Autonomous Intelligence Framework  
 
-<a href='https://arxiv.org/abs/2403.16971'><img src='https://img.shields.io/badge/Paper-PDF-red'></a>
-<a href='https://arxiv.org/abs/2312.03815'><img src='https://img.shields.io/badge/Paper-PDF-blue'></a>
-<a href='https://docs.hexel.foundation/'><img src='https://img.shields.io/badge/Documentation-AIOS-green'></a>
-[![Code License](https://img.shields.io/badge/Code%20License-MIT-orange.svg)](https://github.com/agiresearch/AIOS/blob/main/LICENSE)
-<a href='https://discord.gg/B2HFxEgTJX'><img src='https://img.shields.io/badge/Community-Discord-8A2BE2'></a>
-[![Gurubase](https://img.shields.io/badge/Gurubase-Ask%20AIOS%20Guru-006BFF)](https://gurubase.io/g/hexel)
+Hexel Chain serves as an advanced framework for AI-driven agents, seamlessly integrating large language models (LLMs) into an operational environment. It streamlines the creation and execution of LLM-powered agents by tackling key challenges such as task coordination, context management, memory allocation, data handling, tool integration, and SDK support. By enhancing the overall ecosystem for both developers and users, Hexel Chain simplifies the deployment of intelligent agents. The system consists of a core module responsible for essential operations and a dedicated SDK for extended functionality. Additionally, it offers both a web-based interface and a terminal-based UI for versatile interaction.
 
-<a href="https://trendshift.io/repositories/8908" target="_blank"><img src="https://trendshift.io/api/badge/repositories/8908" alt="agiresearch%2FAIOS | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
-
-AIOS is the AI Agent Operating System, which embeds large language model (LLM) into the operating system and facilitates the development and deployment of LLM-based AI Agents. AIOS is designed to address problems (e.g., scheduling, context switch, memory management, storage management, tool management, Agent SDK management, etc.) during the development and deployment of LLM-based agents, towards a better AIOS-Agent ecosystem for agent developers and agent users. AIOS includes the AIOS Kernel (this [AIOS](https://github.com/agiresearch/AIOS) repository) and the AIOS SDK (the [Cerebrum](https://github.com/agiresearch/Cerebrum) repository). AIOS supports both Web UI and Terminal UI.
-
-## 🏠 Architecture of AIOS
+## 🏠 Structure of Hexel Chain  
 ### Overview
-<p align="center">
-<img src="docs/assets/hexel-figs/architecture.jpg">
-</p>
 
-The AIOS system is comprised of two key components: the AIOS kernel and the AIOS SDK.
-The AIOS kernel acts as an abstraction layer over the operating system kernel, managing various resources that agents require, such as LLM, memory, storage and tool. 
-The AIOS SDK is designed for agent users and developers, enabling them to build and run agent applications by interacting with the AIOS kernel.
-AIOS kernel is the current repository and AIOS SDK can be found at [here](https://github.com/agiresearch/Cerebrum)
+Hexel Chain consists of two primary components: the Hexel Chain core system and the Hexel Chain SDK.  
+The core system functions as a management layer over the underlying operating environment, handling critical resources needed by AI-driven agents, including LLM integration, memory allocation, storage coordination, and tool access.  
+The Hexel Chain SDK is built for both developers and users, providing the necessary framework to create and execute intelligent agent applications by interfacing with the core system.  
+The core system is maintained within this repository, while the SDK is housed separately.
 
-### Modules and Connections
-Below shows how agents utilize AIOS SDK to interact with AIOS kernel and how AIOS kernel receives agent queries and leverage the chain of syscalls that are scheduled and dispatched to run in different modules. 
-<p align="center">
-<img src="docs/assets/hexel-figs/details.png">
-</p>
+### Components and Interactions  
+The diagram below illustrates how agents engage with the Hexel Chain SDK to communicate with the core system. It also outlines how the core system processes agent requests by orchestrating a sequence of system calls, which are managed and executed across various operational modules.  
 
-## 📰 News
-- **[2024-11-30]** 🔥 AIOS v0.2: Disentangled AIOS Kernel (this [AIOS](https://github.com/agiresearch/AIOS) repository) and AIOS SDK (The [Cerebrum](https://github.com/agiresearch/Cerebrum) repository), Remote Kernel for agent users. 
-- **[2024-09-01]** 🔥 AIOS supports multiple agent creation frameworks (e.g., ReAct, Reflexion, OpenAGI, AutoGen, Open Interpreter, MetaGPT). Agents created by these frameworks can onboard AIOS. Onboarding guidelines can be found at the [Doc](https://docs.hexel.foundation/hexel-docs/hexel-agent/how-to-develop-agents).
-- **[2024-07-10]** 📖 AIOS documentation is up, which can be found at [Website](https://docs.hexel.foundation/).
-- **[2024-06-20]** 🔥 Function calling for open-sourced LLMs (native huggingface, vLLM, ollama) is supported.
-- **[2024-05-20]** 🚀 More agents with ChatGPT-based tool calling are added (i.e., MathAgent, RecAgent, TravelAgent, AcademicAgent and CreationAgent), their profiles and workflows can be found in [OpenAGI](https://github.com/agiresearch/OpenAGI).
-- **[2024-05-13]** 🛠️ Local models (diffusion models) as tools from HuggingFace are integrated.
-- **[2024-05-01]** 🛠️ The agent creation in AIOS is refactored, which can be found in our [OpenAGI](https://github.com/agiresearch/OpenAGI) package.
-- **[2024-04-05]** 🛠️ AIOS currently supports external tool callings (google search, wolframalpha, rapid API, etc).
-- **[2024-04-02]** 🤝 AIOS [Discord Community](https://discord.gg/B2HFxEgTJX) is up. Welcome to join the community for discussions, brainstorming, development, or just random chats! For how to contribute to AIOS, please see [CONTRIBUTE](https://github.com/agiresearch/AIOS/blob/main/docs/CONTRIBUTE.md).
-- **[2024-03-25]** ✈️ Our paper [AIOS: LLM Agent Operating System](https://arxiv.org/abs/2403.16971) is released!
-- **[2023-12-06]** 📋 After several months of working, our perspective paper [LLM as OS, Agents as Apps: Envisioning AIOS, Agents and the AIOS-Agent Ecosystem](https://arxiv.org/abs/2312.03815) is officially released.
+## Various Deployment Configurations of Hexel Chain  
 
-## Different deployment modes of AIOS
-Here are some key notations that are required to know before introducing the different modes of AIOS. 
-- **AHM (Agent Hub Machine)**: Central server that hosts the agent marketplace/repository where users can publish, download, and share agents. Acts as the distribution center for all agent-related resources.
-- **AUM (Agent UI Machine)**: Client machine that provides user interface for interacting with agents. Can be any device from mobile phones to desktops that supports agent visualization and control.
-- **ADM (Agent Development Machine)**: Development environment where agent developers write, debug and test their agents. Requires proper development tools and libraries.
-- **ARM (Agent Running Machine)**: Execution environment where agents actually run and perform tasks. Needs adequate computational resources for agent operations.
+Before diving into the different deployment strategies, it's important to understand the core components involved:  
 
-The following parts introduce different modes of deploying AIOS. **Currently, AIOS already supports Mode 1 and Mode 2, other modes with new features are still ongoing.**
+- **AHM (Agent Hub Machine)**: A centralized server that functions as a repository and marketplace for agents, allowing users to upload, access, and distribute agent-related assets.  
+- **AUM (Agent UI Machine)**: A client-side interface enabling users to interact with agents. This can range from mobile devices to desktop systems that support visualization and agent control.  
+- **ADM (Agent Development Machine)**: A dedicated environment for building, testing, and debugging agents, equipped with essential development tools and frameworks.  
+- **ARM (Agent Running Machine)**: The execution layer where agents operate, requiring sufficient computational power to handle real-time tasks.  
 
-### Mode 1 (Local Kernel Mode)
+The next sections outline the available deployment approaches. **Currently, Hexel Chain supports the first two modes, while additional configurations with enhanced capabilities are in active development.**  
 
-<p align="center">
-<img src="docs/assets/hexel-figs/stage1.png" width=300>
-</p>
+### Mode 1 (Local Core Mode)  
 
-- Features:
-  - For agent users: They can download agents from agent hub from Machine B and run agents on Machine A. 
-  - For agent developers: They can develop and test agents in Machine A and can upload agents to agent hub on Machine B.
+- **Capabilities:**  
+  - **For users:** Agents can be acquired from a central repository on Machine B and executed locally on Machine A.  
+  - **For developers:** Agents can be created and tested on Machine A, then uploaded to the repository on Machine B.  
 
-### Mode 2 (Remote Kernel Mode)
+### Mode 2 (Remote Core Mode)  
 
-<p align="center">
-<img src="docs/assets/hexel-figs/stage2.png" width=300>
-</p>
+- **Capabilities:**  
+  - **Remote access to agents:** Users and developers can interact with agents hosted on Machine B, separate from the system where development and execution occur (Machine A).  
+  - **Ideal for:** Users working on devices with limited computational resources, such as mobile or edge devices.  
 
-- Features: 
-  - Remote use of agents: Agent users / developers can use agents on Machine B, which is different from the development and running machine (Machine A).  
-  - Benefit users who would like to use agents on resource-restricted machine (e.g., mobile device or edge device)
+### Mode 2.5 (Remote Development Mode)  
 
-### Mode 2.5 (Remote Kernel Dev Mode)
+- **Capabilities:**  
+  - **Remote agent creation:** Developers can build agents on Machine B while executing and testing them on Machine A.  
+  - **Optimized for:** Development workflows on resource-limited devices.  
+- **Key Implementation:**  
+  - Efficient packaging and transmission of agents between machines to enable distributed development and testing.  
 
-<p align="center">
-<img src="docs/assets/hexel-figs/stage2.5.png" width=300>
-</p>
+### Mode 3 (Personal Remote Core Mode)  
 
-- Features:
-  - Remote development of agents: Agent developers can develop their agents on Machine B while running and testing their agents in Machine A. Benefit developers who would like to develop agents on resource-restricted machine (e.g., mobile device or edge device)
-- Critical technique:
-  - Packaging and agent transmission on different machines for distributed agent development and testing
+- **Upcoming Features:**  
+  - Users and developers will have dedicated instances of Hexel Chain, complete with persistent data, accessible through a registered account.  
+  - Data will sync seamlessly across multiple devices under the same account.  
+- **Key Implementation:**  
+  - Secure user account registration and authentication.  
+  - Long-term storage for user-specific configurations and data.  
+  - Cross-device synchronization of Hexel Chain instances.  
+  - Privacy mechanisms for safeguarding user data.  
 
-### Mode 3 (Personal Remote Kernel Mode)
+### Mode 4 (Personal Remote Virtual Core Mode)  
 
-<p align="center">
-<img src="docs/assets/hexel-figs/stage3.png" width=800>
-</p>
+- **Upcoming Features:**  
+  - Multiple instances of Hexel Chain can run independently on the same physical machine through virtualization.  
+- **Key Implementation:**  
+  - Virtualization of distinct Hexel Chain core environments within a single system.  
+  - Dynamic resource scheduling and allocation for optimal performance of multiple virtual instances.
 
-- Ongoing Features:
-  - Each user/developer can have their personal AIOS with long-term persistent data as long as they have registered account in the AIOS ecosystem
-  - Their personal data can be synced to different machines with the same account
+ ### Installation  
 
-- Critical techniques:
-  - User account registration and verification mechanism
-  - Persistent personal data storage for each user's AIOS
-  - Synchronization for different AIOS instances on different devices within the same account
-  - Data privacy mechanism
+#### System Requirements  
 
-### Mode 4 (Personal Remote Virtual Kernel Mode)
+##### Python  
+- Compatible Versions: **Python 3.10 - 3.11**  
 
-<p align="center">
-<img src="docs/assets/hexel-figs/stage4.png" width=800>
-</p>
+#### Configuring API Keys  
 
-- Ongoing Features:
-  - Different user/developer’s personal AIOS kernels can co-exist in the same physical machine through virtualization
-- Critical techniques:
-  - Virtualization of different AIOS kernel instances in the same machine
-  - Scheduling and resource allocation mechanism for different virtual machines located in the same machine
+To enable various AI services such as OpenAI, Anthropic, Groq, and HuggingFace, API keys are required. The recommended approach for setting them up is by modifying the `hexel/config/config.yaml` file directly.  
 
+> [!NOTE]  
+> It is highly advised to configure API keys via `hexel/config/config.yaml`. This method ensures a streamlined setup process and minimizes potential synchronization conflicts that may arise with environment variables.  
 
-## ✈️ Getting Started
-Please see our ongoing [documentation](https://docs.hexel.foundation/) for more information.
-- [Installation](https://docs.hexel.foundation/hexel-docs/getting-started/installation)
-- [Quickstart](https://docs.hexel.foundation/hexel-docs/getting-started/quickstart)
-- [WebUI Quickstart](https://docs.hexel.foundation/hexel-docs/getting-started/webui-quickstart)
+Below is a sample configuration for defining API keys within `hexel/config/config.yaml`:  
 
-### Installation
-#### Requirements
-##### Python
-- Supported versions: **Python 3.10 - 3.11**
-
-#### Set Up API Keys
-You need API keys for services like OpenAI, Anthropic, Groq and HuggingFace. The simplest way to configure them is to edit the hexel/config/config.yaml.
-
-> [!TIP]
-> It is important to mention that, we stronglyrecommend using the `hexel/config/config.yaml` file to set up your API keys. This method is straightforward and helps avoid potential sychronization issues with environment variables. 
-
-A simple example to set up your API keys in `hexel/config/config.yaml` is shown below:
 ```yaml
 openai: "your-openai-key"
 gemini: "your-gemini-key"
@@ -136,14 +87,14 @@ anthropic: "your-anthropic-key"
 huggingface:
   auth_token: "your-huggingface-token"
   home: "optional-path"
-```
 
-To obtain these API keys:
-1. OpenAI API: Visit https://platform.openai.com/api-keys
-2. Google Gemini API: Visit https://makersuite.google.com/app/apikey
-3. Groq API: Visit https://console.groq.com/keys
-4. HuggingFace Token: Visit https://huggingface.co/settings/tokens
-5. Anthropic API: Visit https://console.anthropic.com/keys
+To acquire these API keys, refer to the respective provider platforms:
+
+- **OpenAI API:** Visit OpenAI's API Key Page  
+- **Google Gemini API:** Access via Google's API Portal  
+- **Groq API:** Retrieve from Groq's Developer Console  
+- **HuggingFace Token:** Generate from HuggingFace's Settings  
+- **Anthropic API:** Available via Anthropic's API Dashboard  
 
 **Use ollama Models:** If you would like to use ollama, you need to download ollama from from https://ollama.com/.
 Then pull the available models you would like to use from https://ollama.com/library
@@ -158,105 +109,77 @@ ollama serve
 > [!TIP]
 > ollama can support both CPU-only and GPU environment, details of how to use ollama can be found at [here](https://github.com/ollama/ollama)
 
+**Utilizing HuggingFace Models:**  
+Certain models from HuggingFace require authentication. To access all available models, you must configure an authentication token. This can be generated from HuggingFace’s token settings page and should be set as an environment variable using the following command:  
 
-**Use Huggingface Models:** Some of the huggingface models require authentification, if you want to use all of
-the models you need to set up  your authentification token in https://huggingface.co/settings/tokens
-and set up it as an environment variable using the following command
+By default, HuggingFace downloads models to the `~/.cache` directory. If you wish to specify a different location for storing model files, you can define the directory path in the `hexel/config/config.yaml` file.  
 
-By default, huggingface will download the models in the `~/.cache` directory.
-If you want to designate the download directory, you can set up the home path in the `hexel/config/config.yaml` file.
+To accelerate model inference, you can leverage vLLM as the backend.  
 
-If you want to speed up the inference of huggingface models, you can use vLLM as the backend.
+> [!NOTE]  
+> vLLM is currently compatible only with Linux-based systems and requires a GPU-enabled environment. If your system does not meet these requirements, alternative solutions must be considered.  
 
-> [!NOTE]
->
-> It is important to note that vLLM currently only supports linux and GPU-enabled environment. So if you do not have the environment, you need to choose other options.
-
-Considering that vLLM itself does not support passing designated GPU ids, you need to either
-setup the environment variable,
+Since vLLM does not natively support specifying GPU IDs, you will need to manually configure the environment variable as shown below:  
 
 ```bash
-export CUDA_VISIBLE_DEVICES="0" # replace with your designated gpu ids
+export CUDA_VISIBLE_DEVICES="0" # Replace with the desired GPU IDs
+
 ```
+##### Detailed Setup Instructions  
 
-##### Detailed Setup Instructions
-For detailed instructions on setting up API keys and configuration files, see [Environment Variables Configuration](https://app.gitbook.com/o/6h6b4xbBVMu2pFXdNM0D/s/5h7XvlMFgKMtRboLGG1i/~/diff/~/changes/73/getting-started/environment-variables-configuration).
+For an in-depth guide on configuring API keys and environment settings, refer to the official documentation.  
 
-Alternatively, you can set them as environment variables directly:
+Alternatively, environment variables can be set manually using the following commands:  
 
-- `hexel env list`: Show current environment variables, or show available API keys if no variables are set
-- `hexel env set`: Show current environment variables, or show available API keys if no variables are set
-- `hexel refresh`: Refresh AIOS configuration.
-  Reloads the configuration from hexel/config/config.yaml.
-  Reinitializes all components without restarting the server.
-  The server must be running.
-
-When no environment variables are set, the following API keys will be shown:
-- `OPENAI_API_KEY`: OpenAI API key for accessing OpenAI services
-- `GEMINI_API_KEY`: Google Gemini API key for accessing Google's Gemini services
-- `GROQ_API_KEY`: Groq API key for accessing Groq services
-- `HF_AUTH_TOKEN`: HuggingFace authentication token for accessing models
-- `HF_HOME`: Optional path to store HuggingFace models
-
-#### Installation from source
-Git clone AIOS kernel
 ```bash
-git clone https://github.com/agiresearch/AIOS.git
-cd AIOS && git checkout v0.2.0.beta
-```
-Create venv environment (recommended)
-```bash
-python3.x -m venv venv # Only support for Python 3.10 and 3.11
-source venv/bin/activate
-```
-or create conda environment
-```bash
-conda create -n venv python=3.x  # Only support for Python 3.10 and 3.11
-conda activate venv
-```
+# Display current environment variables or available API keys if none are set  
+hexel env list  
 
-If you have GPU environments, you can install the dependencies using
-```bash
-pip install -r requirements-cuda.txt
-```
-or else you can install the dependencies using
-```bash
-pip install -r requirements.txt
-```
+# Configure new environment variables or modify existing ones  
+hexel env set  
 
-**Note**: The machine where the AIOS kernel (AIOS) is installed must also have the AIOS SDK (Cerebrum) installed. Installing AIOS kernel will install the AIOS SDK automatically by default. If you are using the Local Kernel mode, i.e., you are running AIOS and agents on the same machine, then simply install both AIOS and Cerebrum on that machine. If you are using Remote Kernel mode, i.e., running AIOS on Machine 1 and running agents on Machine 2 and the agents remotely interact with the kernel, then you need to install both AIOS kernel and AIOS SDK on Machine 1, and install the AIOS SDK alone on Machine 2. Please follow the guidelines at [Cerebrum](https://github.com/agiresearch/Cerebrum) regarding how to install the SDK.
+# Refresh Hexel Chain’s configuration without restarting the system  
+hexel refresh  
 
-### Quickstart
+# When environment variables are not configured, the system will prompt for the following API keys:  
+export OPENAI_API_KEY="your-openai-key"  
+export GEMINI_API_KEY="your-gemini-key"  
+export GROQ_API_KEY="your-groq-key"  
+export HF_AUTH_TOKEN="your-huggingface-token"  
+export HF_HOME="optional-path-to-store-huggingface-models"  
 
-#### Launch AIOS
-After you setup your keys or environment parameters, then you can follow the instructions below to start.
+# Installation from Source  
+# Clone the Hexel Chain repository  
+git clone https://github.com/agiresearch/HexelChain.git  
+cd HexelChain && git checkout v0.2.0.beta  
 
-Run:
+# Set up a virtual environment (recommended)  
+python3.x -m venv venv  # Supports Python 3.10 and 3.11  
+source venv/bin/activate  
 
-```
-bash runtime/launch_kernel.sh
-```
+# Alternatively, create a Conda environment  
+conda create -n venv python=3.x  # Supports Python 3.10 and 3.11  
+conda activate venv  
 
-Or if you need to explicity set the Python version by running `python3.10`, `python3.11`, `python3`, etc. run the command below:
+# Install dependencies based on system configuration  
+# For GPU-enabled environments:  
+pip install -r requirements-cuda.txt  
 
-```
-python3.x -m uvicorn runtime.kernel:app --host 0.0.0.0
-```
+# For CPU-only environments:  
+pip install -r requirements.txt  
 
-You can also force the kernel to run in the background with:
-```
-python3.x -m uvicorn runtime.kernel:app --host 0.0.0.0 & 2>&1 > MYLOGFILE.txt
-```
+# Quickstart - Launch Hexel Chain  
+# Start the Hexel Chain core system  
+bash runtime/launch_kernel.sh  
 
-And you can run it even after the shell closes by typing `nohup` before the entire command.
+# If a specific Python version needs to be set explicitly  
+python3.x -m uvicorn runtime.kernel:app --host 0.0.0.0  
 
-Then you can start the client provided by the AIOS SDK either in the terminal or in the WebUI. The instructions can be found at [here](https://github.com/agiresearch/Cerebrum)
+# To run the system in the background  
+python3.x -m uvicorn runtime.kernel:app --host 0.0.0.0 & 2>&1 > MYLOGFILE.txt  
 
-### Supported Agent Frameworks
-- [OpenAGI](https://github.com/agiresearch/openagi)
-- [AutoGen](https://github.com/microsoft/autogen)
-- [Open-Interpreter](https://github.com/OpenInterpreter/open-interpreter)
-- [MetaGPT](https://github.com/geekan/MetaGPT?tab=readme-ov-file)
+# To keep the process running after closing the shell  
+nohup python3.x -m uvicorn runtime.kernel:app --host 0.0.0.0 &  
 
 ### Supported LLM Cores
 | Provider 🏢 | Model Name 🤖 | Open Source 🔓 | Model String ⌨️ | Backend ⚙️ | Required API Key |
@@ -289,29 +212,3 @@ Then you can start the client provided by the AIOS SDK either in the terminal or
 | ollama | [All Models](https://ollama.com/search) | ✅ | model-name |ollama| - |
 | vLLM | [All Models](https://docs.vllm.ai/en/latest/) | ✅ | model-name |vllm| - |
 | HuggingFace | [All Models](https://huggingface.co/models/) | ✅ | model-name |huggingface| HF_HOME |
-
-## 🖋️ References
-```
-@article{mei2024hexel,
-  title={AIOS: LLM Agent Operating System},
-  author={Mei, Kai and Li, Zelong and Xu, Shuyuan and Ye, Ruosong and Ge, Yingqiang and Zhang, Yongfeng}
-  journal={arXiv:2403.16971},
-  year={2024}
-}
-@article{ge2023llm,
-  title={LLM as OS, Agents as Apps: Envisioning AIOS, Agents and the AIOS-Agent Ecosystem},
-  author={Ge, Yingqiang and Ren, Yujie and Hua, Wenyue and Xu, Shuyuan and Tan, Juntao and Zhang, Yongfeng},
-  journal={arXiv:2312.03815},
-  year={2023}
-}
-```
-
-## 🚀 Contributions
-For how to contribute, see [CONTRIBUTE](https://github.com/agiresearch/AIOS/blob/main/docs/CONTRIBUTE.md). If you would like to contribute to the codebase, [issues](https://github.com/agiresearch/AIOS/issues) or [pull requests](https://github.com/agiresearch/AIOS/pulls) are always welcome!
-
-## 🌍 AIOS Contributors
-[![AIOS contributors](https://contrib.rocks/image?repo=agiresearch/AIOS&max=300)](https://github.com/agiresearch/AIOS/graphs/contributors)
-
-
-## 🤝 Discord Channel
-If you would like to join the community, ask questions, chat with fellows, learn about or propose new features, and participate in future developments, join our [Discord Community](https://discord.gg/B2HFxEgTJX)!
